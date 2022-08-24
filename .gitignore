@@ -1,3 +1,5 @@
-/node_modules
+# node_modules 는 절대 깃 저장소에 업로드되면 안됨
+# **node_modules 로 설정 시, 경로에 상관없이 모든 경로에 해당하는 node_modlues 를 제외함
+**node_modules
 
 
