@@ -49,8 +49,8 @@ app.set("views", "./src/views")
 app.set("view engine", "ejs"); // views 폴더 내부를 어떤 엔진을 이용하여 해석할 것인지
 
 app.use("/", home); // use -> 미들웨어를 등록해주는 메서드. 
-
-
+app.use(express.static(`${__dirname}/src/public`)) // __dirname: app.js 파일의 위치를 반환하는데, 그 안에 있는 public 경로를 정적 경로로 추가함 public/js/home/login.js 에 접근 가능하게 됨
+ 
 module.exports = app;
 // ./bin/www.js 파일로 이동
 // /// 서버 띄우는 코드
