@@ -16,5 +16,6 @@ router.get("/", ctrl.home); // /(루트) 경로 접근 시, control 의 hello �
 /// 로그인 화면
 router.get("/login", ctrl.login); // /login 경로 접근 시, control 의 login 으로 접근
 
+
 // app.js 에서 routes/home 폴더에 존재하는 index.js 파일 연결
 module.exports = router;

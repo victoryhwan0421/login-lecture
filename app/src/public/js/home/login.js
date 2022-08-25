@@ -25,6 +25,21 @@ function login() {
     // test
     console.log(req); 
 
-    // req 로 전달받은 데이터를 서버로 보내주기
-    //fetch();
+    /*
+    req 로 전달받은 데이터를 서버로 보내주기
+    서버와 프론트랑 해당 데이터를 어떤 경로에서 주고 받을지 결정해야함
+    해당 경로에 api 가 존재해야함
+
+    - 첫 파라미터: /login 이라는 경로, 두 번째 파라미터: 전달할 오브젝트
+    - req 오브젝트 데이터를 JSON 의 형태로 전달하기 위해 JSON 형식으로 감싸주기( JSON.stringify() )
+    - body 형식으로 데이터를 전달하기 위해서는, HTTP 형식의 "POST" method 로 전달해야 함 (Rest API 관련)
+    - 요청 데이터가, 전달하는 데이터가 JSON 데이터라고 header 를 통해 알려줘야함
+    */
+    fetch("/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(req)
+    });
 }
