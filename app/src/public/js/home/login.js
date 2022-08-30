@@ -8,8 +8,8 @@ DOM -> Document Object Model
 */
 
 const id = document.querySelector("#id"),
-    psword = document.querySelector("#psword"),
-    loginBtn = document.querySelector("button");
+        psword = document.querySelector("#psword"),
+        loginBtn = document.querySelector("button");
 
 
 loginBtn.addEventListener("click", login);
@@ -17,13 +17,13 @@ loginBtn.addEventListener("click", login);
 function login() {
     // 요청변수 req  오브젝트로 선언
     const req = {
-        id : id.value,
-        psword : psword.value,
+        id: id.value,
+        psword: psword.value,
     };
 
 
     // test
-    console.log(req); 
+    //console.log(req); 
 
     /*
     req 로 전달받은 데이터를 서버로 보내주기
@@ -38,8 +38,13 @@ function login() {
     fetch("/login", {
         method: "POST",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
         },
-        body: JSON.stringify(req)
-    });
-}
+        body: JSON.stringify(req),
+    })
+    // .then((res) => console.log(res.json()))
+    // .then((Res) => console.log(res))
+
+    .then((res) => res.json())
+    .then(console.log);
+}   
