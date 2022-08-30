@@ -8,8 +8,8 @@ DOM -> Document Object Model
 */
 
 const id = document.querySelector("#id"),
-        psword = document.querySelector("#psword"),
-        loginBtn = document.querySelector("button");
+    psword = document.querySelector("#psword"),
+    loginBtn = document.querySelector("button");
 
 
 loginBtn.addEventListener("click", login);
@@ -21,10 +21,6 @@ function login() {
         psword: psword.value,
     };
 
-
-    // test
-    //console.log(req); 
-
     /*
     req 로 전달받은 데이터를 서버로 보내주기
     서버와 프론트랑 해당 데이터를 어떤 경로에서 주고 받을지 결정해야함
@@ -35,16 +31,26 @@ function login() {
     - body 형식으로 데이터를 전달하기 위해서는, HTTP 형식의 "POST" method 로 전달해야 함 (Rest API 관련)
     - 요청 데이터가, 전달하는 데이터가 JSON 데이터라고 header 를 통해 알려줘야함
     */
-    fetch("/login", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(req),
-    })
-    // .then((res) => console.log(res.json()))
-    // .then((Res) => console.log(res))
 
-    .then((res) => res.json())
-    .then(console.log);
-}   
+    fetch("/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(req),
+        })
+        .then((res) => res.json())
+        .then((res) => {
+            if (res.success) {
+                // 로그인 성공 시 루트 경로로 이동
+                location.href = "/";
+            } else {
+                // 로그인 실패 시 알림 메시지 띄우기
+                alert(res.msg);
+            }
+        })
+        .catch((err) => {
+            // new Error("~~") 를 이용하여 ~~ 에러 띄우기
+            console.error(new Error("로그인 중 에러 발생"));
+        });
+}
