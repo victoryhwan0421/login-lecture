@@ -51,6 +51,6 @@ function login() {
         })
         .catch((err) => {
             // new Error("~~") 를 이용하여 ~~ 에러 띄우기
-            console.error(new Error("로그인 중 에러 발생"));
+            console.error("로그인 중 에러 발생");
         });
 }
