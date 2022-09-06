@@ -16,7 +16,10 @@ router.get("/", ctrl.output.home); // /(루트) 경로 접근 시, control 의 h
 /// 로그인 화면
 router.get("/login", ctrl.output.login); // /login 경로 접근 시, control 의 login 으로 접근
 
-// api
+/// register
+router.get("/register", ctrl.output.register);
+
+// api 
 // 프론트 단에서 전달한 로그인 데이터를 받아서 로그인 기능 처리
 router.post("/login", ctrl.process.login); 
 
