@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="/css/home/login.css">
-    <script src="/js/home/login.js" defer></script> <!-- app.js 에서 미들웨어 등록 필요-->
+    <script src="/js/home/register.js" defer></script> <!-- app.js 에서 미들웨어 등록 필요-->
     <title>Document</title>
 </head>
 <body>
@@ -19,7 +19,8 @@
             <input id="name" type="text" placeholder="이름"/>
             <input id="psword" type="password" placeholder="비밀번호"/>
             <input id="confirm-psword" type="password" placeholder="비밀번호 확인"/>
-            <button>SIGN UP</button>
+            <!-- <button>SIGN UP</button> form태그 안에서 버튼을 누르면 새로고침이 됨-->
+            <p id="button">SIGN UP</p>
             <p class="message">Already registered? <a href="/login">login</a></p>
           </form>
         </div>
